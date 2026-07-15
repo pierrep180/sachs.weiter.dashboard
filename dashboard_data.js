@@ -27,7 +27,7 @@ window.SW_DATA = {
     },
     {
       key:"leipzig", name:"Leipzig",
-      followers:25400, _monthStartFollowers:22600, followerGoal:40000,
+      followers:25400, _monthStartFollowers:22600, followerGoal:35000,
       viewsMonthly:890423, newThisMonth:2800,
       erreichteKonten:151119, interaktionen:41143,
       splitFollower:47.9, splitNonFollower:52.1,
@@ -37,11 +37,11 @@ window.SW_DATA = {
         {typ:"Reel", beschreibung:"Leipzigs erste Korean Corndogs", aufrufe:59600, saves:null, likes:null},
         {typ:"Post", beschreibung:"Das ist neu in Leipzig", aufrufe:47000, saves:null, likes:null}
       ],
-      goals2026:["40.000 Follower","Teamlead Leipzig etablieren","Eigene Stadt-Aktion"]
+      goals2026:["35.000 Follower","Mehr Ausflüge, Unternehmungen & Gratis-Tipps","Dauerhaft passende Kooperationspartner"]
     },
     {
       key:"chemnitz", name:"Chemnitz",
-      followers:22700, _monthStartFollowers:21100, followerGoal:35000,
+      followers:22700, _monthStartFollowers:21100, followerGoal:30000,
       viewsMonthly:1177746, newThisMonth:1600,
       erreichteKonten:77353, interaktionen:36649,
       splitFollower:63.0, splitNonFollower:37.0,
@@ -51,7 +51,7 @@ window.SW_DATA = {
         {typ:"Reel", beschreibung:"Was geht im Juli in Chemnitz", aufrufe:51400, saves:null, likes:null},
         {typ:"Post", beschreibung:"Collab Badeseen in Sachsen", aufrufe:142244, saves:1975, likes:null}
       ],
-      goals2026:["35.000 Follower","Vollzeitstelle besetzen","Eigene Stadt-Aktion"]
+      goals2026:["30.000 Follower","Team ausbauen","Content-Vielfalt & neue Gesichter etablieren"]
     },
     {
       key:"erfurt", name:"Erfurt",
@@ -65,7 +65,7 @@ window.SW_DATA = {
         {typ:"Reel", beschreibung:"Morning Rave", aufrufe:81400, saves:null, likes:null},
         {typ:"Post", beschreibung:"Neu in Erfurt", aufrufe:54800, saves:null, likes:null}
       ],
-      goals2026:["25.000 Follower","Reichweite weiter ausbauen","Eigene Stadt-Aktion"]
+      goals2026:["25.000 Follower","Zur Go-to-Seite der Stadt werden","Erste passende Kooperationspartner"]
     }
   ]
 };
