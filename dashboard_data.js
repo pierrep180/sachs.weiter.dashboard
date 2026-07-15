@@ -19,7 +19,7 @@ window.SW_DATA = {
       goals2026:["100.000 Follower","Dresden-Website live","Große Aktion (Müllsammeln, Wanderung)"] },
     { key:"leipzig",  name:"Leipzig",  followers:25400, _monthStartFollowers:22600, followerGoal:40000,  viewsMonthly:890423, newThisMonth:2800,
       goals2026:["40.000 Follower","Teamlead Leipzig etablieren","Eigene Stadt-Aktion"] },
-    { key:"chemnitz", name:"Chemnitz", followers:22700, _monthStartFollowers:21100, followerGoal:35000,  viewsMonthly:963925, newThisMonth:1600,
+    { key:"chemnitz", name:"Chemnitz", followers:22700, _monthStartFollowers:21100, followerGoal:35000,  viewsMonthly:1177746, newThisMonth:1600,
       goals2026:["35.000 Follower","Vollzeitstelle besetzen","Eigene Stadt-Aktion"] },
     { key:"erfurt",   name:"Erfurt",   followers:17100, _monthStartFollowers:15774, followerGoal:25000,  viewsMonthly:1092822, newThisMonth:1326,
       goals2026:["25.000 Follower","Reichweite weiter ausbauen","Eigene Stadt-Aktion"] }
