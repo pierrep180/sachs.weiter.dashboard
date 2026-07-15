@@ -144,43 +144,27 @@
   .statCard::after{content:"";position:absolute;right:-2.5vw;top:-2.5vw;width:8vw;height:8vw;border-radius:50%;
     background:radial-gradient(circle,rgba(126,191,209,.18),transparent 70%);}
 
-  /* Ziele – schlanke Leiste unter den Zahlen */
-  .dGoals{flex:0 0 auto;background:linear-gradient(135deg,rgba(251,245,176,.18),rgba(255,255,255,.05));
-    border:1px solid rgba(251,245,176,.30);border-radius:1.6vw;padding:2vh 1.6vw;
-    display:flex;align-items:center;gap:1.8vw;opacity:0;will-change:opacity;}
-  .dGoals.in{opacity:1;transition:opacity .5s ease;}
-  .dGoals .gl{flex:0 0 auto;font-weight:900;font-size:1.05vw;letter-spacing:.14vw;text-transform:uppercase;color:var(--creme);line-height:1.15;}
-  .dGoals ul{list-style:none;display:flex;flex:1;gap:1.6vw;flex-wrap:wrap;}
-  .dGoals li{display:flex;align-items:center;gap:.7vw;font-weight:700;font-size:1.05vw;line-height:1.2;}
-  .dGoals li i{flex:0 0 auto;width:1.6vw;height:1.6vw;border-radius:50%;background:var(--creme);color:var(--petrol-dark);
-    display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:900;font-size:.95vw;}
-
-  /* Viralste Inhalte – groß, mit Titelbild-Optik */
-  .dViral{background:#ffffff;color:var(--ink);border-radius:1.6vw;padding:2.6vh 1.7vw;
-    box-shadow:0 1.6vh 3.6vh rgba(0,25,35,.3);display:flex;flex-direction:column;position:relative;overflow:hidden;}
-  .dViral .vh{font-weight:900;font-size:1.8vw;color:var(--petrol);display:flex;align-items:center;gap:.6vw;}
-  .dViral .vsub{font-weight:700;font-size:.86vw;letter-spacing:.14vw;text-transform:uppercase;color:var(--grey);margin:.6vh 0 1.8vh;}
-  .viralList{display:flex;flex-direction:column;gap:1.5vh;flex:1 1 auto;min-height:0;}
-  .viralCard{flex:1 1 0;display:flex;align-items:center;gap:1.3vw;background:#f1f7f9;border-radius:1.4vw;padding:1.4vh 1.3vw;
-    position:relative;overflow:hidden;opacity:0;will-change:opacity;}
-  .viralCard.in{opacity:1;transition:opacity .5s ease;}
-  .cover{flex:0 0 auto;width:9vw;align-self:stretch;border-radius:1.1vw;position:relative;overflow:hidden;
-    background:linear-gradient(150deg,#00738f,#3f9bb3 60%,#7ebfd1);display:flex;align-items:center;justify-content:center;
-    box-shadow:0 .8vh 1.8vh rgba(0,50,70,.28);}
-  .cover .play{width:3.6vw;height:3.6vw;border-radius:50%;background:rgba(255,255,255,.92);color:var(--petrol);
-    display:flex;align-items:center;justify-content:center;font-size:1.5vw;padding-left:.35vw;box-shadow:0 .4vh 1.2vh rgba(0,0,0,.25);}
-  .cover .rk{position:absolute;top:.8vh;left:.6vw;width:2.3vw;height:2.3vw;border-radius:50%;
-    background:rgba(0,40,55,.55);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.15vw;}
-  .viralCard.top .cover .rk{background:linear-gradient(135deg,#e8b800,#ffd84d);color:#5a4600;}
-  .cover .cViews{position:absolute;bottom:.7vh;left:0;right:0;text-align:center;color:#fff;font-weight:900;font-size:1.3vw;
-    font-variant-numeric:tabular-nums;text-shadow:0 .2vh .7vh rgba(0,0,0,.55);}
-  .vc{flex:1;min-width:0;}
-  .vc .vtype{display:inline-block;font-weight:800;font-size:.76vw;letter-spacing:.12vw;text-transform:uppercase;
-    color:var(--petrol);background:var(--teal-light);padding:.4vh .9vw;border-radius:999px;margin-bottom:.8vh;}
-  .vc .vdesc{font-weight:800;font-size:1.45vw;color:var(--ink);line-height:1.15;
-    overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
-  .vc .vmeta{margin-top:.9vh;font-weight:700;font-size:.98vw;color:var(--grey);}
-  .vc .vmeta b{color:#1f9d5b;}
+  /* Jahresziel-Panel (rechte Spalte) */
+  .dGoalPanel{background:#ffffff;color:var(--ink);border-radius:1.6vw;padding:3vh 1.9vw;
+    box-shadow:0 1.6vh 3.6vh rgba(0,25,35,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;position:relative;overflow:hidden;opacity:0;will-change:opacity;}
+  .dGoalPanel.in{opacity:1;transition:opacity .5s ease;}
+  .dGoalPanel::after{content:"";position:absolute;right:-3vw;top:-3vw;width:11vw;height:11vw;border-radius:50%;
+    background:radial-gradient(circle,rgba(126,191,209,.16),transparent 70%);}
+  .gpLabel{font-weight:900;font-size:1.35vw;letter-spacing:.14vw;text-transform:uppercase;color:var(--petrol);margin-bottom:1.8vh;}
+  .ring{position:relative;width:15vw;height:15vw;}
+  .ring svg{width:100%;height:100%;transform:rotate(-90deg);}
+  .ringBg{fill:none;stroke:#e3eef1;stroke-width:15;}
+  .ringFg{fill:none;stroke-width:15;stroke-linecap:round;transition:stroke-dashoffset 1.3s cubic-bezier(.22,1,.36,1);}
+  .ringCenter{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .ringPct{font-weight:900;font-size:3.4vw;line-height:1;color:var(--petrol-dark);font-variant-numeric:tabular-nums;}
+  .ringSub{margin-top:.5vh;font-weight:800;font-size:.85vw;letter-spacing:.14vw;text-transform:uppercase;color:var(--grey);}
+  .gpNums{margin-top:2vh;font-weight:800;font-size:1.45vw;color:var(--ink);}
+  .gpNums b{color:var(--petrol-dark);}
+  .gpGoals{list-style:none;margin-top:2.4vh;width:100%;display:flex;flex-direction:column;gap:1.4vh;padding:0 .8vw;}
+  .gpGoals li{display:flex;align-items:center;gap:.9vw;font-weight:700;font-size:1.2vw;color:var(--ink);text-align:left;line-height:1.2;}
+  .gpGoals li i{flex:0 0 auto;width:1.9vw;height:1.9vw;border-radius:50%;background:var(--teal-light);color:var(--petrol-dark);
+    display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:900;font-size:1.1vw;}
 </style>
 </head>
 <body class="stage-bg">
@@ -238,15 +222,8 @@
       </div>
     </div>
     <div class="dBody" id="dBody">
-      <div class="dLeft">
-        <div class="dStats" id="dStats"></div>
-        <div class="dGoals" id="dGoals"></div>
-      </div>
-      <div class="dViral">
-        <div class="vh">🔥 Viralste Inhalte</div>
-        <div class="vsub">Top-Content nach Aufrufen · 30 Tage</div>
-        <div class="viralList" id="dViralList"></div>
-      </div>
+      <div class="dStats" id="dStats"></div>
+      <div class="dGoalPanel" id="dGoalPanel"></div>
     </div>
   </div>
 
@@ -340,26 +317,32 @@
       statCard('Erreichte Konten', c.erreichteKonten||0, null, '', 'letzte 30 Tage')+
       statCard('Interaktionen', c.interaktionen||0, null, '', 'letzte 30 Tage');
 
-    document.getElementById('dGoals').innerHTML='<div class="gl">Jahresziele<br>2026</div><ul>'+
-      (c.goals2026||[]).map(t=>`<li><i>✓</i><span>${t}</span></li>`).join('')+'</ul>';
-
-    document.getElementById('dViralList').innerHTML=(c.topContent||[]).slice(0,3).map((p,i)=>{
-      const meta=p.saves?`<b>${fmt(p.saves)}</b> Saves`:(p.likes?`<b>${fmt(p.likes)}</b> Likes`:'');
-      return `<div class="viralCard${i===0?' top':''}">
-        <div class="cover"><span class="rk">${i+1}</span><span class="play">▶</span><span class="cViews">${fmtK(p.aufrufe||0)}</span></div>
-        <div class="vc"><span class="vtype">${p.typ||''}</span><div class="vdesc">${p.beschreibung||''}</div>${meta?`<div class="vmeta">${meta}</div>`:''}</div>
-      </div>`;
-    }).join('');
+    var gpPct=Math.min(c.followers/(c.followerGoal||1)*100,100);
+    document.getElementById('dGoalPanel').innerHTML=`
+      <div class="gpLabel">Jahresziel 2026</div>
+      <div class="ring">
+        <svg viewBox="0 0 200 200">
+          <defs><linearGradient id="rgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00617b"/><stop offset="1" stop-color="#7ebfd1"/></linearGradient></defs>
+          <circle class="ringBg" cx="100" cy="100" r="84"/>
+          <circle class="ringFg" cx="100" cy="100" r="84" stroke="url(#rgrad)" data-pct="${gpPct}" style="stroke-dasharray:527.79px;stroke-dashoffset:527.79px"/>
+        </svg>
+        <div class="ringCenter"><div class="ringPct" data-to="${gpPct}">0%</div><div class="ringSub">des Ziels</div></div>
+      </div>
+      <div class="gpNums"><b>${fmt(c.followers)}</b> / ${fmt(c.followerGoal)} Follower</div>
+      <ul class="gpGoals">${(c.goals2026||[]).map(t=>`<li><i>✓</i><span>${t}</span></li>`).join('')}</ul>`;
   }
 
   function runDetailAnims(){
     document.querySelectorAll('#dStats .statCard').forEach((card,i)=>{
       setTimeout(()=>{ card.classList.add('in'); const v=card.querySelector('.sv'); const r=v.dataset.fmt==='views'?fmtViews:fmt; animate(v, +v.dataset.to, 1300, r); }, 80*i);
     });
-    setTimeout(()=>document.getElementById('dGoals').classList.add('in'), 380);
-    document.querySelectorAll('#dViralList .viralCard').forEach((card,i)=>{
-      setTimeout(()=>card.classList.add('in'), 220+150*i);
-    });
+    var panel=document.getElementById('dGoalPanel');
+    setTimeout(function(){
+      panel.classList.add('in');
+      var fg=panel.querySelector('.ringFg'), C=2*Math.PI*84, pct=+fg.dataset.pct;
+      fg.style.strokeDashoffset=(C*(1-pct/100))+'px';
+      animate(panel.querySelector('.ringPct'), pct, 1300, function(x){return Math.round(x)+'%';});
+    }, 320);
   }
 
   function highlightTile(key,on){
