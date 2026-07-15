@@ -325,8 +325,8 @@
   let ci=0; setInterval(()=>{ci=(ci+1)%claims.length;const el=document.getElementById('claim');if(el)el.textContent=claims[ci];},9000);
 
   /* ---------- Detail / Kino ---------- */
-  function statCard(lbl,val,extra,extraGrey){
-    return `<div class="statCard"><div class="sl">${lbl}</div><div class="sv" data-to="${val}">0</div>`+
+  function statCard(lbl,val,extra,extraGrey,fmtType){
+    return `<div class="statCard"><div class="sl">${lbl}</div><div class="sv" data-to="${val}"${fmtType?` data-fmt="${fmtType}"`:''}>0</div>`+
       (extra?`<div class="sx${extraGrey?' grey':''}">${extra}</div>`:'')+`</div>`;
   }
   function barRow(label,pct,cls){
@@ -342,7 +342,7 @@
     // Stat-Karten
     document.getElementById('dStats').innerHTML=
       statCard('Follower', c.followers, '▲ +'+fmt(c.newThisMonth||0)+' diesen Monat')+
-      statCard('Aufrufe / Monat', c.viewsMonthly, 'letzte 30 Tage', true)+
+      statCard('Aufrufe / Monat', c.viewsMonthly, 'letzte 30 Tage', true, 'views')+
       statCard('Erreichte Konten', c.erreichteKonten||0, 'letzte 30 Tage', true)+
       statCard('Interaktionen', c.interaktionen||0, 'letzte 30 Tage', true);
 
@@ -371,7 +371,7 @@
   function runDetailAnims(){
     // Stat-Zahlen hochzählen + Karten einblenden
     document.querySelectorAll('#dStats .statCard').forEach((card,i)=>{
-      setTimeout(()=>{ card.classList.add('in'); const v=card.querySelector('.sv'); animate(v, +v.dataset.to, 1400); }, 120*i);
+      setTimeout(()=>{ card.classList.add('in'); const v=card.querySelector('.sv'); const r=v.dataset.fmt==='views'?fmtViews:fmt; animate(v, +v.dataset.to, 1400, r); }, 120*i);
     });
     // Viz einblenden + Balken wachsen
     ['dSplit','dMix'].forEach((id,i)=>{
