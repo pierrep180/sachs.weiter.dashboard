@@ -15,7 +15,7 @@ window.SW_DATA = {
   },
 
   cities: [
-    { key:"dresden",  name:"Dresden",  followers:88400, _monthStartFollowers:84900, followerGoal:100000, viewsMonthly:3668000, newThisMonth:3500,
+    { key:"dresden",  name:"Dresden",  followers:88400, _monthStartFollowers:84900, followerGoal:100000, viewsMonthly:5042883, newThisMonth:3500,
       goals2026:["100.000 Follower","Dresden-Website live","Große Aktion (Müllsammeln, Wanderung)"] },
     { key:"leipzig",  name:"Leipzig",  followers:25400, _monthStartFollowers:22600, followerGoal:40000,  viewsMonthly:1367000, newThisMonth:2800,
       goals2026:["40.000 Follower","Teamlead Leipzig etablieren","Eigene Stadt-Aktion"] },
