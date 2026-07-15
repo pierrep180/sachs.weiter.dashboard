@@ -22,15 +22,15 @@
       linear-gradient(150deg,#00617b 0%, #00506a 45%, #003d50 100%);
   }
   body{
-    width:100vw;height:100vh;color:var(--white);display:flex;flex-direction:column;
-    padding:2.4vh 2.2vw 2vh;position:relative;overflow:hidden;
+    width:100vw;height:100vh;color:var(--white);position:relative;overflow:hidden;
     background:
       radial-gradient(65vw 55vh at 84% -8%, rgba(126,191,209,.28), transparent 60%),
       radial-gradient(60vw 60vh at -6% 114%, rgba(0,74,94,.55), transparent 60%),
       linear-gradient(150deg,#00617b 0%, #00506a 45%, #003d50 100%);
-    transition:transform 1s cubic-bezier(.6,0,.2,1), filter 1s ease, opacity 1s ease;
   }
-  body.zoomed{transform:scale(1.12);filter:blur(6px) brightness(.7);opacity:.35;}
+  #overview{position:absolute;inset:0;padding:2.4vh 2.2vw 2vh;display:flex;flex-direction:column;z-index:1;
+    transition:transform 1s cubic-bezier(.6,0,.2,1), filter 1s ease, opacity 1s ease;}
+  #overview.zoomed{transform:scale(1.12);filter:blur(6px) brightness(.7);opacity:.35;}
   body::before{content:"";position:absolute;right:-6vw;top:-14vh;width:34vw;height:34vw;border-radius:50%;
     border:4vw solid rgba(255,255,255,.04);pointer-events:none;}
   body::after{content:"";position:absolute;left:-5vw;bottom:-12vh;width:22vw;height:22vw;border-radius:50%;
@@ -191,6 +191,7 @@
 </style>
 </head>
 <body class="stage-bg">
+  <div id="overview">
   <header>
     <div class="brand">
       <img id="brandLogo" alt="sachs.weiter">
@@ -228,6 +229,7 @@
     <div class="claim" id="claim">Jeden Tag ein Grund, die Stadt neu zu entdecken.</div>
     <div class="mark">sachs.weiter · Dresden · Leipzig · Chemnitz · Erfurt — TAG24</div>
   </footer>
+  </div>
 
   <!-- Kino-Detailansicht -->
   <div class="detail stage-bg" id="detail">
@@ -395,7 +397,7 @@
   function showFirst(c,idx,total){
     highlightTile(c.key,true);
     fillDetail(c,idx,total);
-    document.body.classList.add('zoomed');
+    document.getElementById('overview').classList.add('zoomed');
     detail.classList.add('show');
     setTimeout(()=>{ highlightTile(c.key,false); runDetailAnims(); }, 300);
   }
@@ -405,7 +407,7 @@
   }
   function hideDetail(){
     detail.classList.remove('show');
-    document.body.classList.remove('zoomed');
+    document.getElementById('overview').classList.remove('zoomed');
   }
 
   function startStepBar(ms){
