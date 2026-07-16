@@ -174,6 +174,10 @@
   .deSub{flex:0 0 auto;padding:0 1.3vw;font-weight:700;font-size:.72vw;letter-spacing:.12vw;text-transform:uppercase;color:var(--grey);margin-bottom:1vh;}
   .deFrame{flex:1 1 auto;position:relative;overflow:hidden;background:#fff;}
   .deFrame iframe{position:absolute;top:-1.5vh;left:0;width:100%;height:calc(100% + 10vh);border:0;background:#fff;}
+  .deStats{flex:0 0 auto;display:flex;justify-content:space-around;align-items:center;padding:1.4vh 1vw;border-top:1px solid #e8eef0;background:#fff;}
+  .deStats .m{display:flex;flex-direction:column;align-items:center;gap:.4vh;}
+  .deStats .m b{font-weight:900;font-size:1.45vw;color:var(--petrol-dark);font-variant-numeric:tabular-nums;line-height:1;}
+  .deStats .m span{font-weight:700;font-size:.68vw;letter-spacing:.06vw;text-transform:uppercase;color:var(--grey);}
 </style>
 </head>
 <body class="stage-bg">
@@ -342,7 +346,9 @@
       <ul class="gpGoals">${(c.goals2026||[]).map(t=>`<li><i>✓</i><span>${t}</span></li>`).join('')}</ul>`;
 
     var np=c.newestPost, de=document.getElementById('dEmbed');
-    de.innerHTML = np ? '<div class="deHead">🆕 Neuester Beitrag</div><div class="deSub">'+c.name+' · live von Instagram</div><div class="deFrame"><iframe src="https://www.instagram.com/'+np.typ+'/'+np.code+'/embed" scrolling="no" allowtransparency="true" loading="eager"></iframe></div>' : '';
+    de.innerHTML = np ? '<div class="deHead">🆕 Neuester Beitrag</div><div class="deSub">'+c.name+' · live von Instagram</div>'+
+      '<div class="deFrame"><iframe src="https://www.instagram.com/'+np.typ+'/'+np.code+'/embed" scrolling="no" allowtransparency="true" loading="eager"></iframe></div>'+
+      '<div class="deStats"><div class="m"><b>'+fmt(np.likes||0)+'</b><span>❤ Likes</span></div><div class="m"><b>'+fmt(np.comments||0)+'</b><span>💬 Komm.</span></div><div class="m"><b>'+fmt(np.shares||0)+'</b><span>🔁 Shares</span></div></div>' : '';
   }
 
   function runDetailAnims(){
