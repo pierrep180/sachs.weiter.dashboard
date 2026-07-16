@@ -124,7 +124,7 @@
   .dStepBar{margin-top:1vh;width:15vw;height:.8vh;border-radius:999px;background:rgba(255,255,255,.16);overflow:hidden;margin-left:auto;}
   .dStepFill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--creme),#ffe98a);}
 
-  .dBody{margin-top:2.8vh;flex:1 1 auto;display:grid;grid-template-columns:1.28fr 1fr;gap:1.7vw;min-height:0;
+  .dBody{margin-top:2.6vh;flex:1 1 auto;display:grid;grid-template-columns:1.12fr 0.82fr 0.86fr;gap:1.4vw;min-height:0;
     transition:opacity .3s ease;}
   .dLeft{display:flex;flex-direction:column;gap:1.5vw;min-height:0;}
 
@@ -165,6 +165,15 @@
   .gpGoals li{display:flex;align-items:center;gap:.9vw;font-weight:700;font-size:1.2vw;color:var(--ink);text-align:left;line-height:1.2;}
   .gpGoals li i{flex:0 0 auto;width:1.9vw;height:1.9vw;border-radius:50%;background:var(--teal-light);color:var(--petrol-dark);
     display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:900;font-size:1.1vw;}
+
+  /* Neuester Beitrag – Instagram-Embed (rechte Ecke) */
+  .dEmbed{background:#ffffff;border-radius:1.6vw;box-shadow:0 1.6vh 3.6vh rgba(0,25,35,.3);
+    display:flex;flex-direction:column;overflow:hidden;position:relative;opacity:0;will-change:opacity;}
+  .dEmbed.in{opacity:1;transition:opacity .5s ease;}
+  .deHead{flex:0 0 auto;font-weight:900;font-size:1.25vw;color:var(--petrol);padding:1.8vh 1.3vw .5vh;display:flex;align-items:center;gap:.5vw;}
+  .deSub{flex:0 0 auto;padding:0 1.3vw;font-weight:700;font-size:.72vw;letter-spacing:.12vw;text-transform:uppercase;color:var(--grey);margin-bottom:1vh;}
+  .deFrame{flex:1 1 auto;position:relative;overflow:hidden;background:#fff;}
+  .deFrame iframe{position:absolute;top:-1.5vh;left:0;width:100%;height:calc(100% + 10vh);border:0;background:#fff;}
 </style>
 </head>
 <body class="stage-bg">
@@ -224,6 +233,7 @@
     <div class="dBody" id="dBody">
       <div class="dStats" id="dStats"></div>
       <div class="dGoalPanel" id="dGoalPanel"></div>
+      <div class="dEmbed" id="dEmbed"></div>
     </div>
   </div>
 
@@ -330,6 +340,9 @@
       </div>
       <div class="gpNums"><b>${fmt(c.followers)}</b> / ${fmt(c.followerGoal)} Follower</div>
       <ul class="gpGoals">${(c.goals2026||[]).map(t=>`<li><i>✓</i><span>${t}</span></li>`).join('')}</ul>`;
+
+    var np=c.newestPost, de=document.getElementById('dEmbed');
+    de.innerHTML = np ? '<div class="deHead">🆕 Neuester Beitrag</div><div class="deSub">'+c.name+' · live von Instagram</div><div class="deFrame"><iframe src="https://www.instagram.com/'+np.typ+'/'+np.code+'/embed" scrolling="no" allowtransparency="true" loading="eager"></iframe></div>' : '';
   }
 
   function runDetailAnims(){
@@ -343,6 +356,7 @@
       fg.style.strokeDashoffset=(C*(1-pct/100))+'px';
       animate(panel.querySelector('.ringPct'), pct, 1300, function(x){return Math.round(x)+'%';});
     }, 320);
+    setTimeout(function(){ document.getElementById('dEmbed').classList.add('in'); }, 450);
   }
 
   function highlightTile(key,on){
