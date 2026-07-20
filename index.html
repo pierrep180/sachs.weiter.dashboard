@@ -190,13 +190,18 @@
   .hlMonth{font-weight:900;font-size:3vw;line-height:1;letter-spacing:-.5px;}
   .hlSubtitle{font-weight:600;font-size:1vw;color:var(--teal-light);margin-top:.3vh;}
   .hlClock{font-weight:800;font-size:2.1vw;font-variant-numeric:tabular-nums;line-height:1;}
-  .hlBoard{margin-top:2vh;flex:1 1 auto;display:grid;grid-auto-rows:1fr;gap:1vw;min-height:0;}
-  .evCard{background:#fff;color:var(--ink);border-radius:1vw;padding:1.5vh 1.1vw;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 1.1vh 2.4vh rgba(0,25,35,.22);}
-  .evDate{font-weight:900;font-size:1.55vw;color:var(--petrol-dark);line-height:1;}
-  .evDow{font-weight:700;font-size:.78vw;text-transform:uppercase;letter-spacing:.07vw;color:var(--grey);margin-top:.45vh;}
-  .evTitle{font-weight:800;font-size:1.18vw;line-height:1.14;color:var(--ink);margin-top:1vh;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
-  .evMeta{font-weight:600;font-size:.82vw;color:var(--grey);margin-top:auto;padding-top:.8vh;line-height:1.2;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
-  .evSo{position:absolute;top:1.3vh;right:.9vw;font-weight:900;font-size:.66vw;text-transform:uppercase;letter-spacing:.05vw;color:#fff;background:#c0392b;padding:.3vh .55vw;border-radius:.4vw;}
+  .hlBoard{margin-top:1.0vh;flex:1 1 auto;display:grid;gap:.55vh .8vw;min-height:0;}
+  .hlWk{align-self:end;padding:.1vh .1vw .4vh;border-bottom:.3vh solid rgba(255,255,255,.22);}
+  .hlWk b{display:block;font-weight:900;font-size:1.05vw;letter-spacing:.05vw;color:var(--white);line-height:1;}
+  .hlWk span{font-weight:700;font-size:.72vw;text-transform:uppercase;letter-spacing:.09vw;color:var(--teal-light);}
+  .evCard{background:#fff;color:var(--ink);border-radius:1vw;padding:.8vh .9vw;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 1.1vh 2.4vh rgba(0,25,35,.22);}
+  .evCard.we{background:#fff6e6;}
+  .evDate{font-weight:900;font-size:1.4vw;color:var(--petrol-dark);line-height:1;}
+  .evDow{font-weight:700;font-size:.76vw;text-transform:uppercase;letter-spacing:.07vw;color:var(--grey);margin-top:.28vh;}
+  .evDow.we{color:#c48f1f;font-weight:800;}
+  .evTitle{font-weight:800;font-size:1.18vw;line-height:1.12;color:var(--ink);margin-top:.5vh;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+  .evMeta{font-weight:600;font-size:.82vw;color:var(--grey);margin-top:auto;padding-top:.35vh;line-height:1.2;overflow:hidden;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;}
+  .evSo{position:absolute;top:.9vh;right:.8vw;font-weight:900;font-size:.66vw;text-transform:uppercase;letter-spacing:.05vw;color:#fff;background:#c0392b;padding:.3vh .55vw;border-radius:.4vw;}
   .hlBottom{flex:0 0 auto;margin-top:1.4vh;display:flex;align-items:center;gap:1.2vw;background:rgba(0,0,0,.16);border:1px solid rgba(255,255,255,.10);border-radius:1vw;padding:1.1vh 1.2vw;overflow:hidden;}
   .hlBottom .bt{flex:0 0 auto;font-weight:900;font-size:.9vw;letter-spacing:.12vw;text-transform:uppercase;color:var(--creme);}
   .hlDauer{display:flex;flex-wrap:wrap;gap:.7vh 1.5vw;flex:1 1 auto;}
@@ -288,6 +293,7 @@
         <div class="lg"><i style="background:#7ebfd1"></i>Feste &amp; Kultur</div>
         <div class="lg"><i style="background:#f4b183"></i>Food &amp; Spots</div>
         <div class="lg"><i style="background:#a7d3a0"></i>Ausflug Umland</div>
+        <div class="lg"><i style="background:#e7b84e"></i>Wochenende</div>
       </div>
       <div class="hlSrc" id="hlSource">—</div>
     </div>
@@ -479,8 +485,10 @@
     var y=H.year, m=H.month-1;
     var dowFull=['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
     var dowShort=['So','Mo','Di','Mi','Do','Fr','Sa'];
+    var monShort=['Jan.','Feb.','März','Apr.','Mai','Juni','Juli','Aug.','Sep.','Okt.','Nov.','Dez.'];
     function dnum(ds){ return parseInt(ds.slice(8,10),10); }
     function firstDay(e){ if(e.start) return dnum(e.start); if(e.dates) return dnum(e.dates[0]); if(e.date) return dnum(e.date); return 99; }
+    function lastDay(e){ if(e.end) return dnum(e.end); if(e.dates) return dnum(e.dates[e.dates.length-1]); if(e.date) return dnum(e.date); return firstDay(e); }
     function dateLabel(e){
       if(e.start&&e.end) return dnum(e.start)+'.–'+dnum(e.end)+'.';
       if(e.dates) return e.dates.map(function(d){return dnum(d)+'.';}).join(' / ');
@@ -495,21 +503,49 @@
       if(e.dates) return 'mehrere Tage'+t;
       return (e.time||'');
     }
+    function isWE(e){
+      var a=firstDay(e), b=lastDay(e);
+      for(var d=a; d<=b && d<a+31; d++){ var w=wdOf(d); if(w===0||w===6) return true; }
+      if(e.dates){ for(var i=0;i<e.dates.length;i++){ var w2=wdOf(dnum(e.dates[i])); if(w2===0||w2===6) return true; } }
+      return false;
+    }
+    function mondayOf(day){ var dt=new Date(y,m,day); var wd=(dt.getDay()+6)%7; dt.setDate(dt.getDate()-wd); return dt; }
+    var lastDom=new Date(y,m+1,0).getDate();
+    function weekLabel(mon){
+      var s=new Date(mon), e=new Date(mon); e.setDate(e.getDate()+6);
+      var sd=(s.getMonth()===m&&s.getFullYear()===y)?s.getDate():1;
+      var ed, eM;
+      if(e.getMonth()===m&&e.getFullYear()===y){ ed=e.getDate(); eM=e.getMonth(); }
+      else if(e<new Date(y,m,1)){ ed=1; eM=m; }
+      else { ed=lastDom; eM=m; }
+      return sd+'.–'+ed+'. '+monShort[eM];
+    }
     var evs=(H.events||[]).slice().sort(function(a,b){return firstDay(a)-firstDay(b);});
-    var cols = evs.length<=9?3 : (evs.length<=16?4:5);
+    var groups={}, order=[];
+    evs.forEach(function(e){ var mo=mondayOf(firstDay(e)); var k=mo.getTime(); if(!groups[k]){ groups[k]={mon:mo,items:[]}; order.push(k); } groups[k].items.push(e); });
+    order.sort(function(a,b){return a-b;});
+    var nWk=order.length, maxPer=0;
+    order.forEach(function(k){ if(groups[k].items.length>maxPer) maxPer=groups[k].items.length; });
     var board=document.getElementById('hlBoard');
-    board.style.gridTemplateColumns='repeat('+cols+',1fr)';
-    board.innerHTML=evs.map(function(e){
-      var meta=[e.place,e.price].filter(Boolean).join(' · ');
-      var sub=dowLabel(e)+(e.note?' · '+e.note:'');
-      return '<div class="evCard" style="border-left:.6vw solid '+catColor(e.category)+'">'+
-        (e.soldOut?'<div class="evSo">ausverkauft</div>':'')+
-        '<div class="evDate">'+dateLabel(e)+'</div>'+
-        '<div class="evDow">'+sub+'</div>'+
-        '<div class="evTitle">'+e.title+'</div>'+
-        '<div class="evMeta">'+meta+'</div>'+
-      '</div>';
-    }).join('');
+    board.style.gridTemplateColumns='repeat('+nWk+',1fr)';
+    board.style.gridTemplateRows='auto repeat('+maxPer+',1fr)';
+    var html='';
+    order.forEach(function(k,wi){
+      html+='<div class="hlWk" style="grid-column:'+(wi+1)+';grid-row:1"><b>Woche '+(wi+1)+'</b><span>'+weekLabel(groups[k].mon)+'</span></div>';
+      groups[k].items.forEach(function(e,pi){
+        var meta=[e.place,e.price].filter(Boolean).join(' · ');
+        var sub=dowLabel(e)+(e.note?' · '+e.note:'');
+        var we=isWE(e);
+        html+='<div class="evCard'+(we?' we':'')+'" style="grid-column:'+(wi+1)+';grid-row:'+(pi+2)+';border-left:.55vw solid '+catColor(e.category)+'">'+
+          (e.soldOut?'<div class="evSo">ausverkauft</div>':'')+
+          '<div class="evDate">'+dateLabel(e)+'</div>'+
+          '<div class="evDow'+(we?' we':'')+'">'+(we?'● ':'')+sub+'</div>'+
+          '<div class="evTitle">'+e.title+'</div>'+
+          '<div class="evMeta">'+meta+'</div>'+
+        '</div>';
+      });
+    });
+    board.innerHTML=html;
     document.getElementById('hlDauer').innerHTML=(H.recurring||[]).map(function(r){
       return '<span class="di"><i style="background:'+catColor(r.category)+'"></i>'+r.title+' <small>'+r.when+'</small></span>';
     }).join('');
