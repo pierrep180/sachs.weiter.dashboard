@@ -217,37 +217,38 @@
   /* ================= NEWSRADAR-SLIDE ================= */
   .newsradar{position:fixed;inset:0;z-index:26;color:var(--white);padding:3vh 3vw 2.4vh;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility .6s;}
   .newsradar.show{opacity:1;visibility:visible;}
-  .nrHead{display:flex;align-items:flex-end;justify-content:space-between;flex:0 0 auto;margin-bottom:2.4vh;}
-  .nrTitle{display:flex;flex-direction:column;gap:.7vh;}
-  .nrEye{display:flex;align-items:center;gap:.7vw;font-weight:800;font-size:1vw;letter-spacing:.4vw;text-transform:uppercase;color:var(--creme);}
-  .nrEye .pulse{width:.75vw;height:.75vw;border-radius:50%;background:#ff5a4d;box-shadow:0 0 0 0 rgba(255,90,77,.7);animation:nrpulse 2s infinite;}
-  @keyframes nrpulse{0%{box-shadow:0 0 0 0 rgba(255,90,77,.55);}70%{box-shadow:0 0 0 1vw rgba(255,90,77,0);}100%{box-shadow:0 0 0 0 rgba(255,90,77,0);}}
-  .nrH1{font-weight:900;font-size:3vw;line-height:1;letter-spacing:-.5px;}
+  .nrHead{display:flex;align-items:flex-end;justify-content:space-between;flex:0 0 auto;margin-bottom:2.2vh;}
+  .nrTitle{display:flex;flex-direction:column;gap:.8vh;}
+  .nrEye{display:flex;align-items:center;gap:.7vw;font-weight:800;font-size:1.18vw;letter-spacing:.42vw;text-transform:uppercase;color:var(--creme);}
+  .nrEye .pulse{width:.9vw;height:.9vw;border-radius:50%;background:#ff5a4d;box-shadow:0 0 0 0 rgba(255,90,77,.7);animation:nrpulse 2s infinite;}
+  @keyframes nrpulse{0%{box-shadow:0 0 0 0 rgba(255,90,77,.55);}70%{box-shadow:0 0 0 1.1vw rgba(255,90,77,0);}100%{box-shadow:0 0 0 0 rgba(255,90,77,0);}}
+  .nrH1{font-weight:900;font-size:3.8vw;line-height:.98;letter-spacing:-.6px;}
   .nrH1 span{color:var(--teal-light);}
-  .nrClock{font-weight:800;font-size:2.1vw;font-variant-numeric:tabular-nums;line-height:1;}
-  .nrHero{flex:0 0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5vw;margin-bottom:2.6vh;}
-  .nrCard{position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:1.3vw;padding:2.2vh 1.6vw 2vh 1.9vw;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 1.2vh 2.6vh rgba(0,20,30,.28);}
-  .nrCard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:.55vw;background:var(--acc);}
-  .nrRank{position:absolute;top:1.7vh;right:1.2vw;font-weight:900;font-size:1.2vw;color:rgba(255,255,255,.16);font-variant-numeric:tabular-nums;letter-spacing:.05vw;}
-  .nrKicker{font-weight:800;font-size:.82vw;letter-spacing:.09vw;text-transform:uppercase;color:var(--acc);}
-  .nrCardTitle{font-weight:900;font-size:1.6vw;line-height:1.08;margin-top:1.3vh;color:#fff;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
-  .nrTeaser{font-weight:500;font-size:.96vw;line-height:1.32;color:rgba(255,255,255,.76);margin-top:1.1vh;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;}
-  .nrWhen{margin-top:auto;padding-top:1.5vh;}
-  .nrWhen span{display:inline-block;font-weight:800;font-size:.85vw;color:var(--petrol-dark);background:var(--acc);padding:.55vh 1vw;border-radius:.6vw;}
-  .nrMoreHead{flex:0 0 auto;font-weight:800;font-size:.85vw;letter-spacing:.18vw;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:1.2vh;display:flex;align-items:center;gap:1vw;}
-  .nrMoreHead::after{content:"";flex:1 1 auto;height:1px;background:rgba(255,255,255,.14);}
-  .nrList{flex:1 1 auto;display:flex;flex-direction:column;gap:.95vh;min-height:0;}
-  .nrRow{flex:1 1 0;display:flex;align-items:center;gap:1.1vw;padding:0 1.4vw;background:rgba(255,255,255,.045);border-radius:.9vw;border:1px solid rgba(255,255,255,.07);border-left:.45vw solid var(--acc);overflow:hidden;}
-  .nrDot{width:.85vw;height:.85vw;border-radius:50%;flex:0 0 auto;background:var(--acc);}
-  .nrRowKicker{font-weight:800;font-size:.76vw;text-transform:uppercase;letter-spacing:.05vw;color:var(--acc);flex:0 0 7.5vw;}
-  .nrRowTitle{font-weight:800;font-size:1.08vw;color:#fff;flex:0 0 19vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .nrRowTeaser{font-weight:500;font-size:.92vw;color:rgba(255,255,255,.62);flex:1 1 auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .nrRowWhen{font-weight:800;font-size:.85vw;color:var(--petrol-dark);background:var(--acc);padding:.5vh .9vw;border-radius:.5vw;flex:0 0 auto;white-space:nowrap;}
-  .nrFoot{flex:0 0 auto;margin-top:1.6vh;display:flex;align-items:center;justify-content:space-between;}
-  .nrSrc{font-weight:600;font-size:.72vw;color:rgba(255,255,255,.45);}
-  .nrLegend{display:flex;gap:1.3vw;}
-  .nrLegend .lg{display:flex;align-items:center;gap:.4vw;font-weight:700;font-size:.75vw;color:rgba(255,255,255,.8);}
-  .nrLegend .lg i{width:.8vw;height:.8vw;border-radius:50%;}
+  .nrClock{font-weight:800;font-size:2.4vw;font-variant-numeric:tabular-nums;line-height:1;}
+  .nrHero{flex:0 0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5vw;margin-bottom:2.4vh;}
+  .nrCard{position:relative;background:#fff;color:var(--ink);border-radius:1.3vw;padding:2.7vh 1.7vw 2.5vh 2.1vw;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 1.6vh 3.4vh rgba(0,16,26,.36);}
+  .nrCard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:.72vw;background:var(--acc);}
+  .nrRank{position:absolute;top:2vh;right:1.4vw;font-weight:900;font-size:1.75vw;color:rgba(11,54,72,.12);font-variant-numeric:tabular-nums;letter-spacing:.05vw;}
+  .nrKicker{display:flex;align-items:center;gap:.55vw;font-weight:800;font-size:.96vw;letter-spacing:.09vw;text-transform:uppercase;color:var(--petrol-dark);}
+  .nrKicker i{width:.85vw;height:.85vw;border-radius:50%;background:var(--acc);flex:0 0 auto;}
+  .nrCardTitle{font-weight:900;font-size:2.1vw;line-height:1.04;margin-top:1.5vh;color:var(--petrol-dark);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+  .nrTeaser{font-weight:500;font-size:1.08vw;line-height:1.34;color:#5b6c73;margin-top:1.3vh;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;}
+  .nrWhen{margin-top:auto;padding-top:1.8vh;}
+  .nrWhen span{display:inline-block;font-weight:900;font-size:1.02vw;color:var(--petrol-dark);background:var(--acc);padding:.8vh 1.3vw;border-radius:.7vw;}
+  .nrMoreHead{flex:0 0 auto;font-weight:800;font-size:1.05vw;letter-spacing:.22vw;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:1.4vh;display:flex;align-items:center;gap:1vw;}
+  .nrMoreHead::after{content:"";flex:1 1 auto;height:2px;background:rgba(255,255,255,.2);}
+  .nrList{flex:1 1 auto;display:flex;flex-direction:column;gap:1.15vh;min-height:0;}
+  .nrRow{flex:1 1 0;display:flex;align-items:center;gap:1.3vw;padding:0 1.7vw;background:#fff;color:var(--ink);border-radius:1vw;border-left:.62vw solid var(--acc);overflow:hidden;box-shadow:0 1vh 2.2vh rgba(0,16,26,.24);}
+  .nrDot{width:1vw;height:1vw;border-radius:50%;flex:0 0 auto;background:var(--acc);}
+  .nrRowKicker{font-weight:800;font-size:.86vw;text-transform:uppercase;letter-spacing:.05vw;color:var(--grey);flex:0 0 8vw;}
+  .nrRowTitle{font-weight:900;font-size:1.4vw;color:var(--petrol-dark);flex:0 0 21vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .nrRowTeaser{font-weight:500;font-size:1.05vw;color:#5b6c73;flex:1 1 auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .nrRowWhen{font-weight:900;font-size:1vw;color:var(--petrol-dark);background:var(--acc);padding:.75vh 1.2vw;border-radius:.6vw;flex:0 0 auto;white-space:nowrap;}
+  .nrFoot{flex:0 0 auto;margin-top:1.8vh;display:flex;align-items:center;justify-content:space-between;}
+  .nrSrc{font-weight:600;font-size:.8vw;color:rgba(255,255,255,.6);}
+  .nrLegend{display:flex;gap:1.5vw;}
+  .nrLegend .lg{display:flex;align-items:center;gap:.45vw;font-weight:700;font-size:.85vw;color:rgba(255,255,255,.9);}
+  .nrLegend .lg i{width:.95vw;height:.95vw;border-radius:50%;}
 </style>
 </head>
 <body class="stage-bg">
@@ -621,7 +622,7 @@
       var c=nrColor(e.saeule);
       return '<div class="nrCard" style="--acc:'+c+'">'+
         '<div class="nrRank">0'+(i+1)+'</div>'+
-        '<div class="nrKicker">'+e.art+'</div>'+
+        '<div class="nrKicker"><i></i>'+e.art+'</div>'+
         '<div class="nrCardTitle">'+e.title+'</div>'+
         '<div class="nrTeaser">'+e.teaser+'</div>'+
         '<div class="nrWhen"><span>'+(e.soldOut?'ausverkauft · ':'')+e.when+'</span></div>'+
