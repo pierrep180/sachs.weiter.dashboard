@@ -13,10 +13,10 @@ window.SW_DATA = {
   cities: [
     {
       key:"dresden", name:"Dresden",
-      followers:88670, _monthStartFollowers:84900, followerGoal:100000,
-      viewsMonthly:5334429, newThisMonth:3770, deltaViewsPct:25.5,
-      erreichteKonten:706267, interaktionen:234491,
-      newestPost:{typ:"reel",code:"Da2-U2nMLmH",likes:672,comments:9,shares:10},
+      followers:88839, _monthStartFollowers:84900, followerGoal:100000,
+      viewsMonthly:5065051, newThisMonth:3939, deltaViewsPct:19.2,
+      erreichteKonten:716328, interaktionen:217881,
+      newestPost:{typ:"reel",code:"Da-pFtaMR8q",likes:643,comments:6,shares:10},
       goals2026:["100.000 Follower","Dresden-Website live","Große Aktion (Müllsammeln, Wanderung)"]
     },
     {
