@@ -179,42 +179,31 @@
   .deStats .m b{font-weight:900;font-size:1.45vw;color:var(--petrol-dark);font-variant-numeric:tabular-nums;line-height:1;}
   .deStats .m span{font-weight:700;font-size:.68vw;letter-spacing:.06vw;text-transform:uppercase;color:var(--grey);}
 
-  /* ================= HIGHLIGHTS-KALENDER-SLIDE ================= */
-  .highlights{position:fixed;inset:0;z-index:25;color:var(--white);padding:2.4vh 2.4vw 2vh;
+  /* ================= HIGHLIGHTS-PINNWAND-SLIDE ================= */
+  .highlights{position:fixed;inset:0;z-index:25;color:var(--white);padding:2.2vh 2.2vw 1.6vh;
     display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility .6s;}
   .highlights.show{opacity:1;visibility:visible;}
   .hlHead{display:flex;align-items:center;justify-content:space-between;flex:0 0 auto;}
   .hlBrand{display:flex;align-items:center;gap:1.1vw;}
-  .hlBrand img{height:8.5vh;width:auto;object-fit:contain;filter:drop-shadow(0 .6vh 1.4vh rgba(0,0,0,.28));}
+  .hlBrand img{height:8vh;width:auto;object-fit:contain;filter:drop-shadow(0 .6vh 1.4vh rgba(0,0,0,.28));}
   .hlEye{font-weight:800;font-size:1vw;letter-spacing:.42vw;text-transform:uppercase;color:var(--creme);}
-  .hlMonth{font-weight:900;font-size:3.2vw;line-height:1;letter-spacing:-.5px;}
+  .hlMonth{font-weight:900;font-size:3vw;line-height:1;letter-spacing:-.5px;}
   .hlSubtitle{font-weight:600;font-size:1vw;color:var(--teal-light);margin-top:.3vh;}
-  .hlClock{text-align:right;font-weight:800;font-size:2.1vw;font-variant-numeric:tabular-nums;}
-  .hlBody{margin-top:2vh;flex:1 1 auto;display:grid;grid-template-columns:2.9fr 1fr;gap:1.4vw;min-height:0;}
-  .hlGrid{display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:auto repeat(6,1fr);gap:.5vw;min-height:0;}
-  .hlDow{font-weight:800;font-size:.9vw;letter-spacing:.1vw;text-transform:uppercase;color:var(--teal-light);text-align:center;padding-bottom:.3vh;}
-  .hlDow.we{color:var(--creme);}
-  .hlCell{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:.7vw;padding:.5vh .45vw;overflow:hidden;display:flex;flex-direction:column;min-height:0;}
-  .hlCell.we{background:rgba(255,255,255,.11);}
-  .hlCell.empty{background:transparent;border:0;}
-  .hlCell.today{outline:.18vw solid var(--creme);outline-offset:-.18vw;}
-  .hlNum{font-weight:800;font-size:.95vw;color:#eaf4f7;margin-bottom:.3vh;flex:0 0 auto;}
-  .hlChips{display:flex;flex-direction:column;gap:.3vh;overflow:hidden;}
-  .hlChip{display:flex;align-items:center;gap:.3vw;background:rgba(255,255,255,.94);color:var(--ink);border-radius:.4vw;padding:.28vh .35vw;}
-  .hlChip .dot{flex:0 0 auto;width:.55vw;height:.55vw;border-radius:50%;}
-  .hlChip .ct{font-weight:700;font-size:.64vw;line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .hlChip .ct b{color:var(--petrol);}
-  .hlChip .so{flex:0 0 auto;font-weight:800;font-size:.5vw;color:#c0392b;text-transform:uppercase;}
-  .hlMore{font-weight:700;font-size:.6vw;color:var(--teal-light);margin-top:.2vh;}
-  .hlSide{display:flex;flex-direction:column;gap:1.2vh;min-height:0;overflow:hidden;}
-  .hlSideCard{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:1vw;padding:1.4vh 1vw;flex:1 1 0;overflow:hidden;}
-  .hlSideT{font-weight:800;font-size:.85vw;letter-spacing:.1vw;text-transform:uppercase;color:var(--creme);margin-bottom:1vh;}
-  .hlSideRow{display:flex;align-items:flex-start;gap:.6vw;margin-bottom:1vh;}
-  .hlSideRow .dot{flex:0 0 auto;width:.7vw;height:.7vw;border-radius:50%;margin-top:.45vh;}
-  .hlSideInfo{display:flex;flex-direction:column;line-height:1.15;min-width:0;}
-  .hlSideInfo b{font-weight:800;font-size:.92vw;color:#fff;}
-  .hlSideInfo span{font-weight:600;font-size:.72vw;color:rgba(255,255,255,.65);}
-  .hlFoot{margin-top:1.4vh;flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;}
+  .hlClock{font-weight:800;font-size:2.1vw;font-variant-numeric:tabular-nums;line-height:1;}
+  .hlBoard{margin-top:2vh;flex:1 1 auto;display:grid;grid-auto-rows:1fr;gap:1vw;min-height:0;}
+  .evCard{background:#fff;color:var(--ink);border-radius:1vw;padding:1.5vh 1.1vw;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 1.1vh 2.4vh rgba(0,25,35,.22);}
+  .evDate{font-weight:900;font-size:1.55vw;color:var(--petrol-dark);line-height:1;}
+  .evDow{font-weight:700;font-size:.78vw;text-transform:uppercase;letter-spacing:.07vw;color:var(--grey);margin-top:.45vh;}
+  .evTitle{font-weight:800;font-size:1.18vw;line-height:1.14;color:var(--ink);margin-top:1vh;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+  .evMeta{font-weight:600;font-size:.82vw;color:var(--grey);margin-top:auto;padding-top:.8vh;line-height:1.2;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+  .evSo{position:absolute;top:1.3vh;right:.9vw;font-weight:900;font-size:.66vw;text-transform:uppercase;letter-spacing:.05vw;color:#fff;background:#c0392b;padding:.3vh .55vw;border-radius:.4vw;}
+  .hlBottom{flex:0 0 auto;margin-top:1.4vh;display:flex;align-items:center;gap:1.2vw;background:rgba(0,0,0,.16);border:1px solid rgba(255,255,255,.10);border-radius:1vw;padding:1.1vh 1.2vw;overflow:hidden;}
+  .hlBottom .bt{flex:0 0 auto;font-weight:900;font-size:.9vw;letter-spacing:.12vw;text-transform:uppercase;color:var(--creme);}
+  .hlDauer{display:flex;flex-wrap:wrap;gap:.7vh 1.5vw;flex:1 1 auto;}
+  .hlDauer .di{display:inline-flex;align-items:center;gap:.5vw;font-weight:700;font-size:.95vw;color:#eaf4f7;}
+  .hlDauer .di i{width:.8vw;height:.8vw;border-radius:50%;flex:0 0 auto;}
+  .hlDauer .di small{font-weight:600;color:rgba(255,255,255,.6);margin-left:.25vw;}
+  .hlFoot{margin-top:1vh;flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;}
   .hlLegend{display:flex;gap:1.4vw;}
   .hlLegend .lg{display:flex;align-items:center;gap:.4vw;font-weight:700;font-size:.8vw;color:rgba(255,255,255,.85);}
   .hlLegend .lg i{width:.9vw;height:.9vw;border-radius:50%;display:inline-block;}
@@ -291,10 +280,8 @@
       </div>
       <div class="hlClock" id="hlTime">--:--</div>
     </div>
-    <div class="hlBody">
-      <div class="hlGrid" id="hlGrid"></div>
-      <div class="hlSide" id="hlSide"></div>
-    </div>
+    <div class="hlBoard" id="hlBoard"></div>
+    <div class="hlBottom"><div class="bt">Dauernd</div><div class="hlDauer" id="hlDauer"></div></div>
     <div class="hlFoot">
       <div class="hlLegend">
         <div class="lg"><i style="background:#fbf5b0"></i>Konzerte &amp; Open Air</div>
@@ -490,42 +477,42 @@
     document.getElementById('hlMonth').textContent=H.monthLabel||'';
     document.getElementById('hlSource').textContent='Quelle: '+(H.source||'')+' · Stand: '+new Date(H.updated).toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'})+' · sachs.weiter / powered by TAG24';
     var y=H.year, m=H.month-1;
-    var daysInMonth=new Date(y,m+1,0).getDate();
-    var firstDow=(new Date(y,m,1).getDay()+6)%7; // Mo=0 … So=6
-    var byDay={}; for(var d=1;d<=daysInMonth;d++) byDay[d]=[];
-    function pushDay(dd,ev,label){ if(dd>=1&&dd<=daysInMonth) byDay[dd].push(Object.assign({},ev,{_label:label})); }
-    (H.events||[]).forEach(function(ev){
-      if(ev.dates){ ev.dates.forEach(function(ds){ pushDay(parseInt(ds.slice(8,10),10),ev,''); }); }
-      else if(ev.start&&ev.end){ var s=parseInt(ev.start.slice(8,10),10),e=parseInt(ev.end.slice(8,10),10); pushDay(s,ev,s+'.–'+e+'.'); }
-      else if(ev.date){ pushDay(parseInt(ev.date.slice(8,10),10),ev,''); }
-    });
-    var grid=document.getElementById('hlGrid'); grid.innerHTML='';
-    ['Mo','Di','Mi','Do','Fr','Sa','So'].forEach(function(w,i){ var h=document.createElement('div'); h.className='hlDow'+(i>=5?' we':''); h.textContent=w; grid.appendChild(h); });
-    for(var b=0;b<firstDow;b++){ var em=document.createElement('div'); em.className='hlCell empty'; grid.appendChild(em); }
-    var today=new Date(), isThis=(today.getFullYear()===y&&today.getMonth()===m);
-    for(var d=1;d<=daysInMonth;d++){
-      var dow=(new Date(y,m,d).getDay()+6)%7;
-      var cell=document.createElement('div');
-      cell.className='hlCell'+(dow>=5?' we':'')+((isThis&&today.getDate()===d)?' today':'');
-      var evs=byDay[d]||[], chips='';
-      evs.slice(0,3).forEach(function(ev){
-        chips+='<div class="hlChip"><span class="dot" style="background:'+catColor(ev.category)+'"></span>'+
-          '<span class="ct">'+(ev._label?'<b>'+ev._label+'</b> ':'')+ev.title+'</span>'+
-          (ev.soldOut?'<span class="so">ausv.</span>':'')+'</div>';
-      });
-      if(evs.length>3) chips+='<div class="hlMore">+'+(evs.length-3)+' mehr</div>';
-      cell.innerHTML='<div class="hlNum">'+d+'</div><div class="hlChips">'+chips+'</div>';
-      grid.appendChild(cell);
+    var dowFull=['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+    var dowShort=['So','Mo','Di','Mi','Do','Fr','Sa'];
+    function dnum(ds){ return parseInt(ds.slice(8,10),10); }
+    function firstDay(e){ if(e.start) return dnum(e.start); if(e.dates) return dnum(e.dates[0]); if(e.date) return dnum(e.date); return 99; }
+    function dateLabel(e){
+      if(e.start&&e.end) return dnum(e.start)+'.–'+dnum(e.end)+'.';
+      if(e.dates) return e.dates.map(function(d){return dnum(d)+'.';}).join(' / ');
+      if(e.date) return dnum(e.date)+'.';
+      return '';
     }
-    function sideCard(title,items){
-      return '<div class="hlSideCard"><div class="hlSideT">'+title+'</div>'+items.map(function(r){
-        return '<div class="hlSideRow"><span class="dot" style="background:'+catColor(r.category)+'"></span><div class="hlSideInfo"><b>'+r.title+'</b><span>'+r.when+' · '+r.place+'</span></div></div>';
-      }).join('')+'</div>';
+    function wdOf(day){ return new Date(y,m,day).getDay(); }
+    function dowLabel(e){
+      var t=e.time?' · '+e.time:'';
+      if(e.start&&e.end) return dowShort[wdOf(dnum(e.start))]+'–'+dowShort[wdOf(dnum(e.end))]+t;
+      if(e.date) return dowFull[wdOf(dnum(e.date))]+t;
+      if(e.dates) return 'mehrere Tage'+t;
+      return (e.time||'');
     }
-    var rec=H.recurring||[];
-    document.getElementById('hlSide').innerHTML=
-      sideCard('Läuft den ganzen Monat', rec.filter(function(r){return r.scope==='monat';}))+
-      sideCard('Jedes Wochenende', rec.filter(function(r){return r.scope!=='monat';}));
+    var evs=(H.events||[]).slice().sort(function(a,b){return firstDay(a)-firstDay(b);});
+    var cols = evs.length<=9?3 : (evs.length<=16?4:5);
+    var board=document.getElementById('hlBoard');
+    board.style.gridTemplateColumns='repeat('+cols+',1fr)';
+    board.innerHTML=evs.map(function(e){
+      var meta=[e.place,e.price].filter(Boolean).join(' · ');
+      var sub=dowLabel(e)+(e.note?' · '+e.note:'');
+      return '<div class="evCard" style="border-left:.6vw solid '+catColor(e.category)+'">'+
+        (e.soldOut?'<div class="evSo">ausverkauft</div>':'')+
+        '<div class="evDate">'+dateLabel(e)+'</div>'+
+        '<div class="evDow">'+sub+'</div>'+
+        '<div class="evTitle">'+e.title+'</div>'+
+        '<div class="evMeta">'+meta+'</div>'+
+      '</div>';
+    }).join('');
+    document.getElementById('hlDauer').innerHTML=(H.recurring||[]).map(function(r){
+      return '<span class="di"><i style="background:'+catColor(r.category)+'"></i>'+r.title+' <small>'+r.when+'</small></span>';
+    }).join('');
   }
   function showHighlights(){ document.getElementById('highlights').classList.add('show'); }
   function hideHighlights(){ document.getElementById('highlights').classList.remove('show'); }
