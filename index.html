@@ -436,9 +436,9 @@
   }
 
   const detail=document.getElementById('detail'), dBody=document.getElementById('dBody');
-  const CITY_MS=45000;          // Verweildauer je Standort
-  const OVERVIEW_MS=600000;     // 10 Min Übersicht zwischen den Touren
-  const HIGH_MS=60000;          // Verweildauer Highlights-Kalender
+  const CITY_MS=45000;          // Verweildauer je Standort (45 Sek)
+  const OVERVIEW_MS=480000;     // 8 Min Übersicht zwischen den Touren
+  const HIGH_MS=75000;          // Verweildauer Highlights-Kalender (75 Sek)
   let cycleTimer=null;
 
   function showFirst(c,idx,total){
