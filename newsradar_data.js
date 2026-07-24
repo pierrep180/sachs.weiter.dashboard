@@ -1,7 +1,7 @@
 /* sachs.weiter – Newsradar-Slide (Dresden) – automatisch aus Notion erzeugt */
 window.SW_NEWSRADAR = {
   city: "Dresden",
-  updated: "2026-07-22",
+  updated: "2026-07-24",
   source: "Dresden News Radar (Notion)",
   items: [
     { rank:1, title:"Floras Garten", art:"Neueröffnung", saeule:"Food & Drinks", when:"Neu · Großer Garten", score:90, teaser:"Neuer Biergarten am Palaisteich im Großen Garten." },
