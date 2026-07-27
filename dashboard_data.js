@@ -1,11 +1,11 @@
 /* ============================================================
    sachs.weiter – Dashboard-Daten
-   Wird taeglich vom Task 'sachsweiter-dashboard-feed' aus
+   Wird taeglich vom Task 'sachsweiter-dashboard-feed-opus' aus
    06_Analytics/analytics_daily/sachsweiter_analytics_latest.json erzeugt.
    Ziele (goals, followerGoal, goals2026) werden dabei bewahrt.
    ============================================================ */
 window.SW_DATA = {
-  updated: "2026-07-21",
+  updated: "2026-07-25",
   monthLabel: "Juli 2026",
 
   goals: { followersTotal: 200000, viewsMonthly: 10000000 },
@@ -21,26 +21,26 @@ window.SW_DATA = {
     },
     {
       key:"leipzig", name:"Leipzig",
-      followers:25598, _monthStartFollowers:22600, followerGoal:35000,
-      viewsMonthly:909310, newThisMonth:2998, deltaViewsPct:-4.3,
-      erreichteKonten:154650, interaktionen:38134,
-      newestPost:{typ:"p",code:"DbBEMcyAvVD",likes:60,comments:0,shares:0},
+      followers:25600, _monthStartFollowers:22600, followerGoal:35000,
+      viewsMonthly:798001, newThisMonth:3000, deltaViewsPct:-16.0,
+      erreichteKonten:146712, interaktionen:30767,
+      newestPost:{typ:"reel",code:"DbK8l_WMTV2",likes:1,comments:0,shares:0},
       goals2026:["35.000 Follower","Mehr Ausflüge, Unternehmungen & Gratis-Tipps","Dauerhaft passende Kooperationspartner"]
     },
     {
       key:"chemnitz", name:"Chemnitz",
-      followers:22836, _monthStartFollowers:21100, followerGoal:30000,
-      viewsMonthly:1187326, newThisMonth:1736, deltaViewsPct:23.2,
-      erreichteKonten:78127, interaktionen:37635,
-      newestPost:{typ:"p",code:"DbBAe1iMRea",likes:1337,comments:24,shares:15},
+      followers:22800, _monthStartFollowers:21100, followerGoal:30000,
+      viewsMonthly:1241976, newThisMonth:1700, deltaViewsPct:28.8,
+      erreichteKonten:156654, interaktionen:36254,
+      newestPost:{typ:"p",code:"DbJCzr2jtlT",likes:270,comments:5,shares:1},
       goals2026:["30.000 Follower","Team ausbauen","Content-Vielfalt & neue Gesichter etablieren"]
     },
     {
       key:"erfurt", name:"Erfurt",
-      followers:17422, _monthStartFollowers:15774, followerGoal:25000,
-      viewsMonthly:1090828, newThisMonth:1648, deltaViewsPct:-11.1,
-      erreichteKonten:167885, interaktionen:54380,
-      newestPost:{typ:"reel",code:"DbBequroXsC",likes:534,comments:7,shares:5},
+      followers:17600, _monthStartFollowers:15774, followerGoal:25000,
+      viewsMonthly:1143399, newThisMonth:1826, deltaViewsPct:-6.8,
+      erreichteKonten:172674, interaktionen:56991,
+      newestPost:{typ:"p",code:"DbIHrDEiMf3",likes:158,comments:1,shares:4},
       goals2026:["25.000 Follower","Zur Go-to-Seite der Stadt werden","Erste passende Kooperationspartner"]
     }
   ]
