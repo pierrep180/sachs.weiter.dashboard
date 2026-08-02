@@ -5,7 +5,7 @@
    Ziele (goals, followerGoal, goals2026) werden dabei bewahrt.
    ============================================================ */
 window.SW_DATA = {
-  updated: "2026-07-27",
+  updated: "2026-07-28",
   monthLabel: "Juli 2026",
 
   goals: { followersTotal: 200000, viewsMonthly: 10000000 },
@@ -21,26 +21,26 @@ window.SW_DATA = {
     },
     {
       key:"leipzig", name:"Leipzig",
-      followers:25700, _monthStartFollowers:22600, followerGoal:35000,
-      viewsMonthly:794958, newThisMonth:3100, deltaViewsPct:-16.4,
-      erreichteKonten:141675, interaktionen:29267,
-      newestPost:{typ:"p",code:"DbNs98VAoF-",likes:230,comments:10,shares:2},
+      followers:25716, _monthStartFollowers:22600, followerGoal:35000,
+      viewsMonthly:765791, newThisMonth:3116, deltaViewsPct:-19.4,
+      erreichteKonten:137590, interaktionen:28394,
+      newestPost:{typ:"p",code:"DbTFlBfgtT8",likes:24,comments:3,shares:3},
       goals2026:["35.000 Follower","Mehr Ausflüge, Unternehmungen & Gratis-Tipps","Dauerhaft passende Kooperationspartner"]
     },
     {
       key:"chemnitz", name:"Chemnitz",
-      followers:22900, _monthStartFollowers:21100, followerGoal:30000,
-      viewsMonthly:1263889, newThisMonth:1800, deltaViewsPct:31.1,
-      erreichteKonten:169521, interaktionen:34188,
-      newestPost:{typ:"p",code:"DbQxPFZDs-u",likes:207,comments:5,shares:3},
+      followers:22921, _monthStartFollowers:21100, followerGoal:30000,
+      viewsMonthly:1264106, newThisMonth:1821, deltaViewsPct:31.1,
+      erreichteKonten:169521, interaktionen:34194,
+      newestPost:{typ:"p",code:"DbQxPFZDs-u",likes:248,comments:6,shares:3},
       goals2026:["30.000 Follower","Team ausbauen","Content-Vielfalt & neue Gesichter etablieren"]
     },
     {
       key:"erfurt", name:"Erfurt",
-      followers:17700, _monthStartFollowers:15774, followerGoal:25000,
-      viewsMonthly:1085676, newThisMonth:1926, deltaViewsPct:-11.5,
-      erreichteKonten:163585, interaktionen:51189,
-      newestPost:{typ:"p",code:"DbQxM6CCBBL",likes:268,comments:4,shares:2},
+      followers:17784, _monthStartFollowers:15774, followerGoal:25000,
+      viewsMonthly:1063445, newThisMonth:2010, deltaViewsPct:-13.3,
+      erreichteKonten:160862, interaktionen:48462,
+      newestPost:{typ:"reel",code:"DbTWtmwIZkJ",likes:152,comments:14,shares:8},
       goals2026:["25.000 Follower","Zur Go-to-Seite der Stadt werden","Erste passende Kooperationspartner"]
     }
   ]
