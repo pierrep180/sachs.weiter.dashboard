@@ -1,7 +1,7 @@
 /* sachs.weiter – Newsradar-Slide (Dresden) – automatisch aus Notion erzeugt */
 window.SW_NEWSRADAR = {
   city: "Dresden",
-  updated: "2026-08-05",
+  updated: "2026-08-06",
   source: "Dresden News Radar (Notion)",
   items: [
     { rank:1, title:"Sarti Spritz", art:"Foodtrend", saeule:"Food & Drinks", when:"Neu · Twenty Two", score:91, teaser:"Pinker Aperol-Rivale: TikTok-Trenddrink des Sommers, serviert vom Spritz-Baum." },
