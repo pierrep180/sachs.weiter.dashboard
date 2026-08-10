@@ -1,7 +1,7 @@
 /* sachs.weiter – Newsradar-Slide (Dresden) – automatisch aus Notion erzeugt */
 window.SW_NEWSRADAR = {
   city: "Dresden",
-  updated: "2026-08-09",
+  updated: "2026-08-10",
   source: "Dresden News Radar (Notion)",
   items: [
     { rank:1, title:"Sarti Spritz", art:"Foodtrend", saeule:"Food & Drinks", when:"Neu · Twenty Two", score:91, teaser:"Der pinke Aperol-Rivale des Sommers – viral auf TikTok, serviert an der Wilsdruffer." },
