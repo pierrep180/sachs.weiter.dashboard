@@ -5,7 +5,7 @@
    Ziele (goals, followerGoal, goals2026) werden dabei bewahrt.
    ============================================================ */
 window.SW_DATA = {
-  updated: "2026-08-17",
+  updated: "2026-08-19",
   monthLabel: "August 2026",
 
   goals: { followersTotal: 200000, viewsMonthly: 10000000 },
@@ -13,18 +13,18 @@ window.SW_DATA = {
   cities: [
     {
       key:"dresden", name:"Dresden",
-      followers:90041, _monthStartFollowers:84900, followerGoal:100000,
-      viewsMonthly:4023636, newThisMonth:5141, deltaViewsPct:-5.3,
-      erreichteKonten:380618, interaktionen:145238,
-      newestPost:{typ:"reel",code:"DcHSR6XMl7B",likes:3277,comments:56,shares:84},
+      followers:90091, _monthStartFollowers:84900, followerGoal:100000,
+      viewsMonthly:4084301, newThisMonth:5191, deltaViewsPct:-3.9,
+      erreichteKonten:391151, interaktionen:145542,
+      newestPost:{typ:"p",code:"DcL0Gs7jFTj",likes:258,comments:1,shares:2},
       goals2026:["100.000 Follower","Dresden-Website live","Große Aktion (Müllsammeln, Wanderung)"]
     },
     {
       key:"leipzig", name:"Leipzig",
-      followers:26322, _monthStartFollowers:22600, followerGoal:35000,
-      viewsMonthly:775794, newThisMonth:3722, deltaViewsPct:-18.4,
-      erreichteKonten:120227, interaktionen:26119,
-      newestPost:{typ:"reel",code:"DcGNC5vCN3r",likes:1151,comments:26,shares:21},
+      followers:26515, _monthStartFollowers:22600, followerGoal:35000,
+      viewsMonthly:802689, newThisMonth:3915, deltaViewsPct:-15.6,
+      erreichteKonten:127807, interaktionen:26930,
+      newestPost:{typ:"reel",code:"DcLk2ygCpWD",likes:48,comments:0,shares:2},
       goals2026:["35.000 Follower","Mehr Ausflüge, Unternehmungen & Gratis-Tipps","Dauerhaft passende Kooperationspartner"]
     },
     {
@@ -37,10 +37,10 @@ window.SW_DATA = {
     },
     {
       key:"erfurt", name:"Erfurt",
-      followers:19088, _monthStartFollowers:15774, followerGoal:25000,
-      viewsMonthly:1185126, newThisMonth:3314, deltaViewsPct:-3.4,
-      erreichteKonten:182684, interaktionen:55903,
-      newestPost:{typ:"reel",code:"DcG0yjuIyS-",likes:124,comments:1,shares:2},
+      followers:19313, _monthStartFollowers:15774, followerGoal:25000,
+      viewsMonthly:1200553, newThisMonth:3539, deltaViewsPct:-2.1,
+      erreichteKonten:184668, interaktionen:56394,
+      newestPost:{typ:"p",code:"DcL5VQkiK4X",likes:394,comments:3,shares:2},
       goals2026:["25.000 Follower","Zur Go-to-Seite der Stadt werden","Erste passende Kooperationspartner"]
     }
   ]
