@@ -250,6 +250,23 @@
   .nrLegend .lg{display:flex;align-items:center;gap:.45vw;font-weight:700;font-size:.85vw;color:rgba(255,255,255,.9);}
   .nrLegend .lg i{width:.95vw;height:.95vw;border-radius:50%;}
 
+  /* ---- Stadt-Puls-Leiste (Umbau 21.08.2026): Live-Signale, die die Seite SELBST holt ----
+   * Wetter (Open-Meteo), Elbpegel (PEGELONLINE, Bundesbehörde), nächstes Heimspiel (OpenLigaDB).
+   * Alle drei erlauben Browser-Zugriff (CORS geprüft). Regel aus der Stadt-Puls-Recherche:
+   * Fällt eine Quelle aus, verschwindet ihre Kachel — nie ein alter Wert, nie ein Platzhalter.
+   * Fallen alle aus, verschwindet die ganze Leiste. „Würze fehlt", nie „Seite kaputt". */
+  .nrPuls{flex:0 0 auto;display:flex;gap:1vw;margin-bottom:2vh;}
+  .nrPuls:empty{display:none;}
+  .nrPulsTile{display:flex;align-items:center;gap:.75vw;background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.16);border-radius:1vw;padding:1.1vh 1.3vw;min-width:0;}
+  .nrPulsTile.warn{background:rgba(255,90,77,.18);border-color:rgba(255,90,77,.45);}
+  .nrPulsIco{font-size:1.55vw;line-height:1;flex:0 0 auto;}
+  .nrPulsTxt{display:flex;flex-direction:column;gap:.25vh;min-width:0;}
+  .nrPulsVal{font-weight:900;font-size:1.18vw;line-height:1.05;color:var(--white);white-space:nowrap;}
+  .nrPulsLbl{font-weight:700;font-size:.72vw;letter-spacing:.08vw;text-transform:uppercase;
+    color:var(--teal-light);white-space:nowrap;}
+  .nrSrc.stale{color:#ff8a80;font-weight:800;}
+
   /* ================= COMMUNITY-EVENTS-SLIDE ================= */
   .cevents{position:fixed;inset:0;z-index:27;color:var(--white);padding:3vh 3vw 2.4vh;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility .6s;}
   .cevents.show{opacity:1;visibility:visible;}
@@ -377,6 +394,7 @@
       </div>
       <div class="nrClock" id="nrTime">--:--</div>
     </div>
+    <div class="nrPuls" id="nrPuls"></div>
     <div class="nrHero" id="nrHero"></div>
     <div class="nrMoreHead">Außerdem auf dem Radar</div>
     <div class="nrList" id="nrList"></div>
@@ -666,7 +684,21 @@
     var items=(N.items||[]);
     var hero=items.slice(0,3), more=items.slice(3,8);
     var src=document.getElementById('nrSource');
-    if(src) src.textContent='Quelle: '+(N.source||'')+' · Stand: '+new Date(N.updated).toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'})+' · sachs.weiter';
+    if(src){
+      /* Frische-Wächter (21.08.2026): Die Daten kommen von einer täglichen Routine — und
+       * Routinen sterben still (Rechner aus, Zugang abgelaufen, Format geändert). Ein Slide,
+       * der wortlos eine Woche alte "News" zeigt, ist schlimmer als einer, der es zugibt.
+       * Ab 3 Tagen Alter wird die Quellzeile deshalb zur roten Warnung. */
+      var alterTage=Math.floor((Date.now()-new Date(N.updated).getTime())/86400e3);
+      var stand=new Date(N.updated).toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
+      if(alterTage>=3){
+        src.textContent='⚠️ Stand '+stand+' — Daten sind '+alterTage+' Tage alt, Routine prüfen!';
+        src.classList.add('stale');
+      } else {
+        src.textContent='Quelle: '+(N.source||'')+' · Stand: '+stand+' · sachs.weiter';
+        src.classList.remove('stale');
+      }
+    }
     document.getElementById('nrHero').innerHTML=hero.map(function(e,i){
       var c=nrColor(e.saeule);
       return '<div class="nrCard" style="--acc:'+c+'">'+
@@ -688,7 +720,98 @@
       '</div>';
     }).join('');
   }
-  function showNewsradar(){ renderNewsradar(); var el=document.getElementById('newsradar'); if(el) el.classList.add('show'); }
+  /* ==== Stadt-Puls: Live-Signale, direkt von den Quellen geholt (Umbau 21.08.2026) ====
+   * Ergebnis der Stadt-Puls-Recherche: Wetter, Elbpegel und Spielplan braucht KEINE Routine —
+   * die Quellen erlauben Browser-Zugriff, also holt der Slide sie selbst, frisch bei jedem
+   * Erscheinen. Die tägliche Routine kuratiert nur noch, was Maschinen nicht können: die News.
+   * Eiserne Regel je Kachel: Quelle antwortet nicht in 3,5 s → Kachel erscheint nicht.
+   * Kein Zwischenspeicher, kein alter Wert, kein Platzhalter. */
+  function pulsTimeout(){ return (typeof AbortSignal!=='undefined' && AbortSignal.timeout) ? AbortSignal.timeout(3500) : undefined; }
+  function pulsWetterIcon(code){
+    /* Open-Meteo-Wettercodes, grob gebündelt — mehr Feinheit braucht eine Kachel nicht. */
+    if(code===0) return '☀️';
+    if(code<=2) return '🌤️';
+    if(code===3) return '☁️';
+    if(code<=48) return '🌫️';
+    if(code<=57) return '🌦️';
+    if(code<=67) return '🌧️';
+    if(code<=77) return '🌨️';
+    if(code<=82) return '🌧️';
+    if(code<=86) return '🌨️';
+    return '⛈️';
+  }
+  function pulsTile(ico,val,lbl,warn){
+    return '<div class="nrPulsTile'+(warn?' warn':'')+'"><div class="nrPulsIco">'+ico+'</div>'+
+      '<div class="nrPulsTxt"><div class="nrPulsVal">'+val+'</div><div class="nrPulsLbl">'+lbl+'</div></div></div>';
+  }
+  function loadPuls(){
+    var box=document.getElementById('nrPuls'); if(!box) return;
+    var tiles=[null,null,null,null]; /* feste Plätze: Wetter, Wochenende, Elbe, Sport */
+    function done(){ box.innerHTML=tiles.filter(Boolean).join(''); }
+
+    /* 1) Wetter heute — Temperatur, gefühlt, Regenchance, UV. Dazu der Wochenend-Ausblick,
+     *    aber NUR Do-Sa: Die Recherche (Projection Bias) sagt, Wochenend-Lust gehört an die
+     *    Wochenend-Prognose, nicht ans Heute-Wetter — und montags interessiert sie niemanden. */
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=51.05&longitude=13.74'+
+      '&current=temperature_2m,apparent_temperature,weather_code'+
+      '&daily=uv_index_max,precipitation_probability_max,weather_code,temperature_2m_max'+
+      '&timezone=Europe%2FBerlin&forecast_days=4',{signal:pulsTimeout()})
+      .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+      .then(function(w){
+        var c=w.current, d=w.daily;
+        var teile=[Math.round(c.temperature_2m)+'°'];
+        if(Math.abs(c.apparent_temperature-c.temperature_2m)>=3) teile.push('gefühlt '+Math.round(c.apparent_temperature)+'°');
+        if(d.precipitation_probability_max[0]>=30) teile.push('☔ '+d.precipitation_probability_max[0]+'%');
+        if(d.uv_index_max[0]>=6) teile.push('UV '+Math.round(d.uv_index_max[0]));
+        tiles[0]=pulsTile(pulsWetterIcon(c.weather_code),teile.join(' · '),'Wetter jetzt');
+        var tag=new Date().getDay(); /* 4=Do 5=Fr 6=Sa */
+        if(tag>=4&&tag<=6){
+          var saIdx=6-tag, soIdx=saIdx+1; /* Index von Samstag/Sonntag in den daily-Arrays */
+          if(d.temperature_2m_max[soIdx]!=null){
+            tiles[1]=pulsTile(pulsWetterIcon(d.weather_code[saIdx]),
+              'Sa '+Math.round(d.temperature_2m_max[saIdx])+'° · So '+Math.round(d.temperature_2m_max[soIdx])+'°',
+              'Wochenende');
+          }
+        }
+        done();
+      }).catch(function(){});
+
+    /* 2) Elbpegel Dresden — PEGELONLINE (Bundesbehörde, 15-Minuten-Takt). Die Einstufung
+     *    kommt von der Behörde mit; die Übersetzung in Stadt-Sprache ist Redaktionslogik. */
+    fetch('https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/DRESDEN/W/currentmeasurement.json',{signal:pulsTimeout()})
+      .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+      .then(function(p){
+        /* Messwert älter als 2 h = Quelle hakt → lieber keine Kachel als eine alte. */
+        if(Date.now()-new Date(p.timestamp).getTime()>2*3600e3) return;
+        var warn=p.stateMnwMhw==='high', tief=p.stateMnwMhw==='low';
+        var lbl=warn?'Hochwasser':(tief?'Niedrigwasser':'Elbe · normal');
+        var ico=warn?'🌊':'💧';
+        tiles[2]=pulsTile(ico,Math.round(p.value)+' cm',lbl,warn);
+        done();
+      }).catch(function(){});
+
+    /* 3) Nächstes Dynamo-Heimspiel binnen 7 Tagen — OpenLigaDB (frei, ODbL). Heimspiele
+     *    fluten die Stadt; genau dann gehört das auf den Radar, sonst schweigt die Kachel. */
+    fetch('https://api.openligadb.de/getmatchesbyteamid/177/0/2',{signal:pulsTimeout()})
+      .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+      .then(function(ms){
+        var jetzt=Date.now(), in7=jetzt+7*86400e3;
+        var heim=(ms||[]).filter(function(m){
+          var t=new Date(m.matchDateTime).getTime();
+          return m.team1&&m.team1.teamId===177&&t>=jetzt-3*3600e3&&t<=in7;
+        }).sort(function(a,b){ return new Date(a.matchDateTime)-new Date(b.matchDateTime); })[0];
+        if(!heim) return;
+        var t=new Date(heim.matchDateTime);
+        var heute=t.toDateString()===new Date().toDateString();
+        var wann=heute?('Heute '+t.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'}))
+          :t.toLocaleDateString('de-DE',{weekday:'short',day:'numeric',month:'short'});
+        tiles[3]=pulsTile('⚽',wann+' · '+(heim.team2?heim.team2.shortName||heim.team2.teamName:''),
+          'Dynamo · Heimspiel',heute);
+        done();
+      }).catch(function(){});
+  }
+
+  function showNewsradar(){ renderNewsradar(); loadPuls(); var el=document.getElementById('newsradar'); if(el) el.classList.add('show'); }
   function hideNewsradar(){ var el=document.getElementById('newsradar'); if(el) el.classList.remove('show'); }
   function afterHighlights(){
     if(window.SW_NEWSRADAR && (window.SW_NEWSRADAR.items||[]).length){ showNewsradar(); cycleTimer=setTimeout(function(){ hideNewsradar(); afterNewsradar(); }, NEWS_MS); }
