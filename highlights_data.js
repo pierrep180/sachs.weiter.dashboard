@@ -5,32 +5,29 @@
    Kategorien: konzert (Creme) · fest (Teal) · food (Aprikose) · umland (Salbei)
    ============================================================ */
 window.SW_HIGHLIGHTS = {
-  month: 8, year: 2026, monthLabel: "August 2026",
-  updated: "2026-07-20",
-  source: "Highlights_August_2026_Dresden.md",
+  month: 9, year: 2026, monthLabel: "September 2026",
+  updated: "2026-09-02",
+  source: "Dresden News Radar (Notion)",
   events: [
-    { title:"Pirnaer Hofnacht", date:"2026-08-01", time:"18–01 Uhr", place:"Altstadt-Höfe, Pirna", price:"Eintritt frei", category:"umland" },
-    { title:"Kaisermania – Roland Kaiser", dates:["2026-08-01","2026-08-07","2026-08-08"], time:"20 Uhr", place:"Filmnächte am Elbufer", price:"ausverkauft", category:"konzert", soldOut:true, note:"Auftakt 31.7." },
-    { title:"Nick Cave & The Bad Seeds", date:"2026-08-02", time:"20 Uhr", place:"Filmnächte am Elbufer", price:"Ticket", category:"konzert" },
-    { title:"Japan-Festival & Kreativmarkt", start:"2026-08-01", end:"2026-08-02", time:"ab 9 Uhr", place:"Haus der Presse, Dresden", price:"Eintritt frei", category:"fest" },
-    { title:"Historik Mobil – Dampflok", start:"2026-08-07", end:"2026-08-09", time:"", place:"Zittauer Gebirge", price:"Zuschlag 12 €", category:"umland" },
-    { title:"Moby – Open Air", date:"2026-08-11", time:"20 Uhr", place:"Filmnächte am Elbufer", price:"Ticket", category:"konzert" },
-    { title:"CANALETTO – Dresdner Stadtfest", start:"2026-08-14", end:"2026-08-16", time:"", place:"Altstadt & Elbufer", price:"Eintritt frei", category:"fest", note:"Feuerwerk So" },
-    { title:"Dresdner Nachtlauf", date:"2026-08-14", time:"ab 18:30 Uhr", place:"Innenstadt → Blaues Wunder", price:"Startgebühr", category:"fest" },
-    { title:"Moritzburg Festival – Musical Picnic", date:"2026-08-16", time:"11 Uhr", place:"Schlosspark Proschwitz", price:"ab 29 €", category:"umland" },
-    { title:"Wincent Weiss – Open Air", date:"2026-08-21", time:"19 Uhr", place:"Filmnächte am Elbufer", price:"ausverkauft", category:"konzert", soldOut:true },
-    { title:"Kamenzer Forstfest", start:"2026-08-21", end:"2026-08-27", time:"", place:"Kamenz", price:"Eintritt frei", category:"umland", note:"Feuerwerk Mi 26." },
-    { title:"Clueso – Open Air", date:"2026-08-22", time:"19:30 Uhr", place:"Filmnächte am Elbufer", price:"Ticket", category:"konzert" },
-    { title:"The Saxonz – Breakdance", date:"2026-08-22", time:"19 Uhr", place:"Felsenbühne Rathen", price:"ab 31 €", category:"umland" },
-    { title:"Görlitzer Altstadtfest & Jakuby", start:"2026-08-28", end:"2026-08-30", time:"", place:"Görlitz", price:"Eintritt frei", category:"umland" },
-    { title:"Hecht#Tag – Stadtteilfest", date:"2026-08-29", time:"11–23 Uhr", place:"Hechtviertel, Dresden", price:"Eintritt frei", category:"fest" },
-    { title:"Die Toten Hosen", date:"2026-08-29", time:"ab 16:30 Uhr", place:"Ostragehege, Dresden", price:"ausverkauft", category:"konzert", soldOut:true }
+    { title:"Cocktailnacht im Barockviertel", date:"2026-09-03", time:"18–22 Uhr", place:"Barockviertel", price:"Eintritt frei", category:"food" },
+    { title:"Dresdner Taschenlampenkonzert", date:"2026-09-05", time:"", place:"Junge Garde", price:"Ticket", category:"konzert" },
+    { title:"Kraftwerk Mitte Fest", date:"2026-09-05", time:"ab 11 Uhr", place:"Kraftwerk Mitte", price:"Eintritt frei", category:"konzert", note:"15. Geburtstag" },
+    { title:"Keramikmarkt am Goldenen Reiter", start:"2026-09-05", end:"2026-09-06", time:"", place:"Goldener Reiter", price:"Eintritt frei", category:"fest" },
+    { title:"Queerfilmfestival", start:"2026-09-10", end:"2026-09-16", time:"", place:"Zentralkino & Thalia", price:"ab 7,50 €", category:"fest" },
+    { title:"Bespoked – Handmade-Bike-Messe", start:"2026-09-11", end:"2026-09-13", time:"", place:"Flughafen Dresden", price:"Ticket", category:"fest" },
+    { title:"Federweißerfest Schloss Wackerbarth", start:"2026-09-12", end:"2026-09-13", time:"", place:"Radebeul", price:"Ticket", category:"umland" },
+    { title:"Hundebadetage Naturbad Mockritz", start:"2026-09-12", end:"2026-09-13", time:"", place:"Naturbad Mockritz", price:"3 € / Hund", category:"umland" },
+    { title:"Scheune-Wiedereröffnung", start:"2026-09-18", end:"2026-09-20", time:"", place:"Scheune, Neustadt", price:"Sa gratis", category:"konzert", note:"nach Sanierung" },
+    { title:"Herbst- & Weinfest Radebeul", start:"2026-09-18", end:"2026-09-20", time:"", place:"Altkötzschenbroda", price:"Eintritt frei", category:"umland" },
+    { title:"Correggio im Zwinger", date:"2026-09-19", time:"", place:"Gemäldegalerie Alte Meister", price:"Ticket", category:"fest", note:"bis 10. Jan" },
+    { title:"Pichmännel-Oktoberfest", date:"2026-09-24", time:"", place:"Ostragehege", price:"Ticket", category:"konzert", note:"bis 10. Okt" },
+    { title:"Neustadt Art Festival", start:"2026-09-25", end:"2026-09-27", time:"", place:"Äußere Neustadt", price:"Eintritt frei", category:"fest" },
+    { title:"art & style – Kunst & Design", start:"2026-09-26", end:"2026-09-27", time:"", place:"Messe Dresden", price:"Ticket", category:"fest" },
+    { title:"Läderach Chocolaterie", date:"2026-09-30", time:"", place:"Altmarkt-Galerie", price:"Neu", category:"food", note:"Neueröffnung" }
   ],
   recurring: [
-    { title:"Filmnächte am Elbufer – Open-Air-Kino", when:"täglich bis 30. Aug", place:"Königsufer", price:"ab ca. 9 €", category:"konzert", scope:"monat" },
-    { title:"Palais Sommer – Yoga, Kunst & Konzerte", when:"täglich bis 30. Aug", place:"Alaunpark", price:"Eintritt frei", category:"konzert", scope:"monat" },
-    { title:"Wackerbarth Weinsommer", when:"jedes Wochenende", place:"Radebeul", price:"Eintritt frei", category:"umland", scope:"wochenende" },
-    { title:"Elbeflohmarkt", when:"jeden Samstag", place:"Albertbrücke", price:"Eintritt frei", category:"fest", scope:"wochenende" },
-    { title:"Felix Rooftop – Aperol-Sundowner", when:"jeden Sonntag", place:"Zwinger / Postplatz", price:"Eintritt frei", category:"food", scope:"wochenende" }
+    { title:"Kürbishausen – 50.000 Kürbisse", when:"täglich bis 15. Nov", place:"Oskarshausen", price:"Eintritt", category:"umland", scope:"monat" },
+    { title:"Dresdner Herbstmarkt", when:"11. Sep – 4. Okt", place:"Altmarkt", price:"Eintritt frei", category:"fest", scope:"monat" },
+    { title:"Elbeflohmarkt", when:"jeden Samstag", place:"Albertbrücke", price:"Eintritt frei", category:"fest", scope:"wochenende" }
   ]
 };
